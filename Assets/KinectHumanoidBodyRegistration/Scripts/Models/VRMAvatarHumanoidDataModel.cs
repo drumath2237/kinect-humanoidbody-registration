@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VRMAvatarHumanoidDataModel : MonoBehaviour
+namespace KinectHumanoidBodyRegistration
 {
-    // Start is called before the first frame update
-    void Start()
+    public class VRMAvatarHumanoidDataModel
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
