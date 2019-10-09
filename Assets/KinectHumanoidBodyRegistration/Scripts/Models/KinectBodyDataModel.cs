@@ -10,6 +10,9 @@ namespace KinectHumanoidBodyRegistration
     {
         public static KinectBodyDataModel Instance = new KinectBodyDataModel();
 
+        /// <summary>
+        /// jointの種類とjointデータが対になったデータ
+        /// </summary>
         private Dictionary<Kinect.JointType, JointData> Joints = new Dictionary<Kinect.JointType, JointData>()
         {
             { Kinect.JointType.Head, new JointData() },
@@ -32,5 +35,28 @@ namespace KinectHumanoidBodyRegistration
             { Kinect.JointType.FootLeft, new JointData() },
             { Kinect.JointType.FootRight, new JointData() },
         };
+
+        /// <summary>
+        /// JointDataのデータを登録するためのメソッド
+        /// </summary>
+        /// <param name="joint_type">Jointの種類</param>
+        /// <param name="data">Jointデータ</param>
+        public void SetJointDataValue(Kinect.JointType joint_type, JointData data)
+        {
+            if (Joints[joint_type] == null) return;
+            if (data.Rotation == null) return;
+
+            Joints[joint_type] = data;
+        }
+
+        /// <summary>
+        /// Jointデータを取得するためのメソッド
+        /// </summary>
+        /// <param name="joint_type"></param>
+        /// <returns></returns>
+        public JointData GetJointDataValue(Kinect.JointType joint_type)
+        {
+            return Joints[joint_type] == null ? new JointData() : Joints[joint_type];
+        }
     }
 }
