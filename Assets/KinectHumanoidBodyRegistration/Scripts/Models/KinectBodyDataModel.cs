@@ -2,30 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Kinect = Windows.Kinect;
+
 namespace KinectHumanoidBodyRegistration
 {
     public class KinectBodyDataModel
     {
         public static KinectBodyDataModel Instance = new KinectBodyDataModel();
 
-        public JointData Head { get; private set; }
-        public JointData Neck { get; private set; }
-        public JointData SpineShoulder { get; private set; }
-        public JointData SpineMid { get; private set; }
-        public JointData SpineBase { get; private set; }
-        public JointData ShoulderLeft { get; private set; }
-        public JointData ShoulderRight { get; private set; }
-        public JointData ElbowLeft { get; private set; }
-        public JointData ElbowRight { get; private set; }
-        public JointData WristLeft { get; private set; }
-        public JointData WristRight { get; private set; }
-        public JointData HipLeft { get; private set; }
-        public JointData HipRight { get; private set; }
-        public JointData KneeLeft { get; private set; }
-        public JointData KneeRight { get; private set; }
-        public JointData AnkleLeft { get; private set; }
-        public JointData AnkleRight { get; private set; }
-        public JointData FootLeft { get; private set; }
-        public JointData FootRight { get; private set; }
+        private Dictionary<Kinect.JointType, JointData> Joints = new Dictionary<Kinect.JointType, JointData>()
+        {
+            { Kinect.JointType.Head, new JointData() },
+            { Kinect.JointType.Neck, new JointData() },
+            { Kinect.JointType.SpineBase, new JointData() },
+            { Kinect.JointType.SpineMid, new JointData() },
+            { Kinect.JointType.SpineBase, new JointData() },
+            { Kinect.JointType.ShoulderLeft, new JointData() },
+            { Kinect.JointType.ShoulderRight, new JointData() },
+            { Kinect.JointType.ElbowLeft, new JointData() },
+            { Kinect.JointType.ElbowRight, new JointData() },
+            { Kinect.JointType.WristLeft, new JointData() },
+            { Kinect.JointType.WristRight, new JointData() },
+            { Kinect.JointType.HipLeft, new JointData() },
+            { Kinect.JointType.HipRight, new JointData() },
+            { Kinect.JointType.KneeLeft, new JointData() },
+            { Kinect.JointType.KneeRight, new JointData() },
+            { Kinect.JointType.AnkleLeft, new JointData() },
+            { Kinect.JointType.AnkleRight, new JointData() },
+            { Kinect.JointType.FootLeft, new JointData() },
+            { Kinect.JointType.FootRight, new JointData() },
+        };
     }
 }
