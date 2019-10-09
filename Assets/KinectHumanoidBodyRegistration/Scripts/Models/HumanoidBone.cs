@@ -8,5 +8,17 @@ namespace KinectHumanoidBodyRegistration
     {
         public Vector3 Position { get; private set; }
         public Quaternion Rotation { get; private set; }
+        public void SetData(Vector3 pos, Quaternion rot)
+        {
+            Position = pos;
+            Rotation = rot;
+        }
+
+        public void SetData(JointData data)
+        {
+            Position = data.Position;
+            Rotation = data.Rotation;
+        }
     }
+
 }
